@@ -2,11 +2,6 @@ if has("gui_macvim")
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert
 
-  " Command-T for CommandT
-  macmenu &File.New\ Tab key=<D-T>
-  map <D-t> :CommandT<CR>
-  imap <D-t> <Esc>:CommandT<CR>
-
   " Command-Return for fullscreen
   macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
 
@@ -79,7 +74,7 @@ endfunction
 
 " Project Tree
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-autocmd FocusGained * call s:UpdateNERDTree()
+"autocmd FocusGained * call s:UpdateNERDTree()
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 " Close all open buffers on entering a window if the only
@@ -169,7 +164,7 @@ function ChangeDirectory(dir, ...)
   execute "cd " . fnameescape(a:dir)
   let stay = exists("a:1") ? a:1 : 1
 
-  NERDTree
+  "NERDTree
 
   if !stay
     wincmd p
